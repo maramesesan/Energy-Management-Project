@@ -1,0 +1,101 @@
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f4f1ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+   h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #cc99ff;
+    text-align: center;
+    text-shadow: 2px 3px 5px black;
+    font-size: 80px;
+  }
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #0b0707;
+    border-right: 1px solid #0b0707;
+    border-left: 1px, solid #0b0707;
+}
+
+th {
+    background-color: #cc99ff;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+td {
+    color: black;
+    text-decoration: none;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .backButton {
+    background-color: white;
+    padding: 20px;     
+    border: none;            
+    border-radius: 25px;      
+    cursor: pointer;        
+    box-shadow: 0 4px 15px rgba(244, 92, 255, 0.626); 
+  
+  
+    color: #cc99ff;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .backButton:hover{
+    background-color: #b635b8; 
+  }
+
+  table a {
+    text-decoration: none;
+    color: #0b0707;
+  }
+
+  table button{
+    background-color: white; 
+    padding: 15px;      
+    border: none;            
+  
+    color: #cc99ff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  table button:hover{
+    background-color: #b635b8; 
+
+  }
+
+
+@media (max-width: 600px) {
+    table{
+        width: 60%;
+    }
+}

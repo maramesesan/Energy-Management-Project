@@ -1,0 +1,35 @@
+nav {
+    background-color: white;
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;          
+    border-radius: 20px;        
+    box-shadow: 0 4px 15px rgba(244, 92, 255, 0.626);    
+    text-align: center;
+    width: 80%;
+  }
+  
+  nav a {
+    text-decoration: none;              
+    color: #663399;                     
+    font-size: 40px;                   
+    font-weight: 500;                  
+    padding: 12px 20px;                 
+    border-radius: 10px;               
+    display: inline-block;               
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+nav a:hover {
+  background-color: #b635b8;          
+  color: #ffffff;                      
+}
+
+@media (max-width: 768px) {
+    nav {
+      padding: 15px;                    
+      width: 90%;                      
+    }
+    
+  }
+

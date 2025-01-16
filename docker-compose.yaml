@@ -1,0 +1,126 @@
+version: '3.8'
+services:
+  user-service:
+    build: ./UserMicroservice
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.user-service.rule=Host(`user.localhost`)"
+      - "traefik.http.services.user-service.loadbalancer.server.port=8080"
+
+  device-service-1:
+    build: ./DeviceMicroservice
+    depends_on:
+      - rabbitmq
+    networks:
+      - microservices-network
+    environment:
+      - CONFIG_PATH=/app/config.properties
+      - DEVICE_ID_KEY=device.id1
+    volumes:
+      - /c/Users/User/Desktop/school/DS_3044_Mesesan_Mara/ds2024_30444_mesesan_mara_assig2/DeviceMicroservice/sensor.csv:/app/sensor.csv
+      - /c/Users/User/Desktop/school/DS_3044_Mesesan_Mara/ds2024_30444_mesesan_mara_assig2/DeviceMicroservice/src/main/resources/config.properties:/app/config.properties
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.device-service-1.rule=Host(`device1.localhost`)"
+      - "traefik.http.services.device-service-1.loadbalancer.server.port=8081"
+    
+  device-service-2:
+    build: ./DeviceMicroservice
+    depends_on:
+      - rabbitmq
+    networks:
+      - microservices-network
+    environment:
+      - CONFIG_PATH=/app/config.properties
+      - DEVICE_ID_KEY=device.id2
+    volumes:
+      - /c/Users/User/Desktop/school/DS_3044_Mesesan_Mara/ds2024_30444_mesesan_mara_assig2/DeviceMicroservice/sensor.csv:/app/sensor.csv
+      - /c/Users/User/Desktop/school/DS_3044_Mesesan_Mara/ds2024_30444_mesesan_mara_assig2/DeviceMicroservice/src/main/resources/config.properties:/app/config.properties
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.device-service-2.rule=Host(`device2.localhost`)"
+      - "traefik.http.services.device-service-2.loadbalancer.server.port=8081"
+
+  monitoring-service:
+    build: ./MonitoringAndCommunicationMicroservice
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8082:8082"
+    networks:
+      - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.monitoring-service.rule=Host(`monitoring1.localhost`)"
+      - "traefik.http.services.monitoring-service.loadbalancer.server.port=8082"
+
+  chat-service:
+    build: ./ChatMicroservice
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8083:8083"
+    networks:
+      - microservices-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chat-service.rule=Host(`chat.localhost`)"
+      - "traefik.http.services.chat-service.loadbalancer.server.port=8083"
+
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: user_db
+      POSTGRES_MULTIPLE_DATABASES: user_db,device_db,monitoring_db,chat_db
+    networks:
+      - microservices-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - microservices-network
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8081:8081"
+      - "8089:8089"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network: 
+    name: ds2024_30444_mesesan_mara_assig3_microservices-network
+    driver: bridge
+
+volumes:
+  postgres-data:
+  rabbitmq-data:

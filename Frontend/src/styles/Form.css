@@ -1,0 +1,91 @@
+
+
+h1{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color:#cc99ff;
+  text-align: center;
+  text-shadow: 2px 3px 5px black;
+  font-size: 80px;
+}
+
+
+.container-form {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 70px;
+  border: 4px dotted #cc99ff;
+  border-radius: 10px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container-form label {
+  font-size: 18px;
+  color: #663399;
+  text-align: center;
+}
+
+.container-form input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px;
+  margin-left: 0;
+  border: 2px solid #cc99ff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+.container-form button {
+  color: white;
+  background-color: #cc99ff;
+  font-size: 18px;
+  padding: 15px 30px;       
+  border: none;           
+  cursor: pointer;         
+  margin-top: 10px;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.container-form button:hover {
+  background-color: #b635b8;
+}
+
+#buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.backButton {
+  background-color: white; 
+  padding: 20px;       
+  border: none;           
+  border-radius: 25px;    
+  cursor: pointer;         
+  box-shadow: 0 4px 15px rgba(244, 92, 255, 0.626);
+
+  color: #cc99ff;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.backButton:hover{
+  background-color: #b635b8; 
+}

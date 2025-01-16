@@ -1,0 +1,40 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f4f1ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+   h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #cc99ff;
+    text-align: center;
+    text-shadow: 2px 3px 5px black;
+    font-size: 80px;
+  }
+
+  
+.loginButton{
+  background-color: white; 
+  padding: 15px 30px;       
+  border: none;           
+  border-radius: 25px;    
+  cursor: pointer;         
+  box-shadow: 0 4px 15px rgba(244, 92, 255, 0.626); 
+}
+
+.loginButton a{
+  color: #cc99ff;
+  text-decoration: none;
+  font-size: 50px;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.loginButton:hover{
+  background-color: #b635b8; 
+}
